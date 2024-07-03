@@ -1,0 +1,14 @@
+{
+  "name": "Daytona",
+  "base_div": 200,
+  "x_div": 201,
+  "y_div": 101,
+  "micro_sectors": 268,
+  "pit": {
+    "xa": 74,
+    "xb": 130,
+    "ya": 12,
+    "yb": 17
+  },
+  "meters": 20
+}
