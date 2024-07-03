@@ -9,8 +9,7 @@ from webdriver import *
 from selenium.common.exceptions import StaleElementReferenceException, WebDriverException, NoSuchWindowException
 
 INTERVAL_S = 2
-# US = 317
-US = 52
+US = 317
 URL = 'http://.../live-timing'
 # LONG_STOP_MS = 4 * 60_000
 LONG_STOP_MS = 30_000  # 30 seconds, for tests
