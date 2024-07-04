@@ -1,5 +1,7 @@
 from time import sleep
 import sys
+import json
+import os
 import css
 import util
 from car import Car
@@ -11,8 +13,8 @@ from selenium.common.exceptions import StaleElementReferenceException, WebDriver
 INTERVAL_S = 2
 US = 317
 URL = 'http://.../live-timing'
-# LONG_STOP_MS = 4 * 60_000
-LONG_STOP_MS = 30_000  # 30 seconds, for tests
+LONG_STOP_MS = 2 * 60_000
+# LONG_STOP_MS = 30_000  # 30 seconds, for tests
 COLOURS = {
     'us': '\033[47;30m',
     'racing': '\033[33m',
@@ -32,13 +34,27 @@ RACING_CLOSE_METERS = 500
 LOGS_TO_SHOW = 30
 
 if len(sys.argv) <= 1:
-    print('Should have one argument - track data folder')
+    print('Usage: python main.py <track-data-folder> [optional-last-seen-json]')
     sys.exit(57)
 CONFIG = sys.argv[1]
+if not os.path.isdir(CONFIG):
+    print('Provided track data folder is either not a folder, or does not exist')
+    sys.exit(83)
 LOGFILE = open('selenium_racing.log', 'a')
 
-cars: list[Car] = []
 last_seen: dict = {}
+if len(sys.argv) >= 3:
+    if os.path.exists(sys.argv[2]):
+        with open(sys.argv[2], 'r') as f:
+            last_seen = json.load(f)
+            print('last_seen.json loaded')
+    else:
+        print('last_seen.json not found')
+else:
+    print('last_seen.json not provided (don\'t worry, it\'s not mandatory)')
+
+
+cars: list[Car] = []
 our_car: Car | None = None
 web: WebDriver = init_driver(URL)
 track = Track(CONFIG)
@@ -237,3 +253,6 @@ print('\033[92mENTER when ready (when the webpage loads)\033[0m')
 LOGFILE.write('------\n')
 input()
 loop()
+
+with open('last_seen.json', 'w') as f:
+    json.dump(last_seen, f, indent=4)
