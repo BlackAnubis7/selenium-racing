@@ -16,3 +16,4 @@
 2. Logs are kept in `selenium_racing.log`, which is never cleared automatically
 3. Information about pit times will be saved to `last_seen.json`. You don't need it after race ends, just to preserve state after crashes
 4. ...and it will crash for sure - once it does, just reset it
+5. Before starting everything with the `ENTER`, it's better not to resize the window. However, after that resizing it so that the map is as large as possible is recommended
