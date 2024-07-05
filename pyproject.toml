@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "~3.12"
 selenium = "^4.22.0"
+cffi = "^1.16.0"
 
 
 [build-system]
