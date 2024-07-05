@@ -1,6 +1,6 @@
-from car import Car
-from track import Track
-from webdriver import WebDriver
+from racing.car import Car
+from racing.track import Track
+from racing.webdriver import WebDriver
 
 
 class MockCar:

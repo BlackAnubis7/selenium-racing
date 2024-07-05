@@ -4,8 +4,8 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
-import util
-from track import Track
+import racing.util
+from racing.track import Track
 
 _TABLE_CSS = 'table#live-table > tbody > tr.driver-row'
 
