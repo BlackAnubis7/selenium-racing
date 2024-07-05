@@ -2,12 +2,12 @@ from time import sleep
 import sys
 import json
 import os
-import css
-import util
-from car import Car
-from experiments.mockar import MockCar
-from track import Track
-from webdriver import *
+import racing.css
+import racing.util
+from racing.car import Car
+from racing.experiments.mockar import MockCar
+from racing.track import Track
+from racing.webdriver import *
 from selenium.common.exceptions import StaleElementReferenceException, WebDriverException, NoSuchWindowException
 
 INTERVAL_S = 2
@@ -248,11 +248,17 @@ def print_help():
     print('---------------')
 
 
-print_help()
-print('\033[92mENTER when ready (when the webpage loads)\033[0m')
-LOGFILE.write('------\n')
-input()
-loop()
+def main():
 
-with open('last_seen.json', 'w') as f:
-    json.dump(last_seen, f, indent=4)
+    print_help()
+    print('\033[92mENTER when ready (when the webpage loads)\033[0m')
+    LOGFILE.write('------\n')
+    input()
+    loop()
+
+    with open('last_seen.json', 'w') as f:
+        json.dump(last_seen, f, indent=4)
+
+if __name__ == "__main__":
+    main()
+

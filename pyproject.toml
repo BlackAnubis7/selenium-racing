@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "selenium-racing"
+name = "racing"
 version = "0.1.0"
 description = ""
 authors = ["Abu Anubis <github@anubis.email>"]
 readme = "README.md"
+
+[tool.poetry.scripts]
+racing = "racing.main:main"
 
 [tool.poetry.dependencies]
 python = "~3.12"

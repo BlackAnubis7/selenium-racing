@@ -1,7 +1,7 @@
-import css
-from track import Track
-from util import time_to_ms
-from webdriver import *
+import racing.css
+from racing.track import Track
+from racing.util import time_to_ms
+from racing.webdriver import *
 from selenium.webdriver.remote.webelement import WebElement
 
 
