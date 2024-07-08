@@ -1,7 +1,7 @@
 # Selenium racing
 ## Prerequisites
 1. Python (something new, surely at least 3.5, but nothing before 3.11 has been tested)
-2. `selenium`
+2. [Poetry](https://python-poetry.org)
 
 ## Running
 1. Set `URL` in `main.py` to the live-timing webpage address (and optionally `US` to your car number)
